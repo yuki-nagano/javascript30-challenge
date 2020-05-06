@@ -4,6 +4,16 @@ html {
   font-family: 'helvetica neue';
   font-size: 20px;
   font-weight: 200;
+
+  /* for airport */
+  background: url(https://s2.best-wallpaper.net/wallpaper/3840x2160/1703/Aircraft-wing_3840x2160.jpg);
+  /* https://wallpapercrafter.com/uploads/posts/8414-___airplane-cloud-wing-and-lake-hd.jpg); */
+  /* https://static.wixstatic.com/media/668170_788c4c8957fe4df2a3e5105ccd78f16b~mv2_d_2560_1600_s_2.jpg); */
+  /* https://s1.1zoom.me/b5050/747/Passenger_Airplanes_Sky_474627_3840x2160.jpg); */
+  /* https://i0.wp.com/nobon.me/wp-content/uploads/2017/04/hikoki33_2304x1440_34.jpg?fit=2304%2C1440); */
+  background-repeat:  no-repeat;
+  background-size: cover; /*　100% 100vh;  w h */
+  background-attachment: fixed;
 }
 
 *, *:before, *:after {
@@ -39,7 +49,7 @@ input.search {
   margin: 0;
   padding: 0;
   position: relative;
-  /*perspective: 20px;*/
+  /* perspective: 20px; */
 }
 
 .suggestions li {
@@ -56,17 +66,21 @@ input.search {
 }
 
 .suggestions li:nth-child(even) {
-  transform: perspective(100px) rotateX(3deg) translateY(2px) scale(1.001);
+  /* transform: perspective(100px) rotateX(3deg) translateY(2px) scale(1.001); */
   background: linear-gradient(to bottom,  #ffffff 0%,#EFEFEF 100%);
 }
 
 .suggestions li:nth-child(odd) {
-  transform: perspective(100px) rotateX(-3deg) translateY(3px);
+  /* transform: perspective(100px) rotateX(-3deg) translateY(3px); */
   background: linear-gradient(to top,  #ffffff 0%,#EFEFEF 100%);
 }
 
 span.population {
   font-size: 15px;
+}
+
+span.letters {
+  font-weight: bold;
 }
 
 .hl {

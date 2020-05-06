@@ -17,6 +17,54 @@
 <script>
 const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
 
+const cities = [];
+
+fetch(endpoint)
+  .then(blob => blob.json()) // get promise
+  .then(data => cities.push(...data)) // push a big array into an array
+
+// get your data first
+// get all your functionality in place
+// hook them up to eventlisteners || HTML/style
+
+// find matches in the array and return the search word (city or state)
+function findMatches(wordToMatch, cities) { // string, array
+  return cities.filter(place => {
+    // figure out if the city or state matches what was searched
+    const regex = new RegExp(wordToMatch, 'gi'); // g: global, i: insensitive 
+    return place.city.match(regex) || place.state.match(regex);
+  });
+}
+
+function displayMatches() {
+  const matchArray = findMatches(this.value, cities);
+  const html = matchArray.map(place => {
+    const regex = new RegExp(this.value, 'gi');
+    // for highlight
+    const cityName = place.city.replace(regex, `<span class="hl">${this.value}</span>`);
+    const stateName = place.state.replace(regex, `<span class="hl">${this.value}</span>`);
+
+    let matchHtml = `
+      <li>
+        <span class="name">${cityName}, ${stateName}</span>
+        <span class="population">${place.population}</span>
+      </li>    
+      `;
+
+      return matchHtml;
+
+  }).join(''); // make them a big string
+  suggestions.innerHTML = html;
+}
+
+
+// event
+const searchInput = document.querySelector('.search'); // input box
+const suggestions = document.querySelector('.suggestions');
+
+searchInput.addEventListener('change', displayMatches);
+searchInput.addEventListener('keyup', displayMatches); // to prevent the time lag
+
 </script>
 </body>
 </html>
