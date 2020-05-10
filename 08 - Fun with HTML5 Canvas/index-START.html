@@ -5,13 +5,78 @@
   <title>HTML5 Canvas</title>
 </head>
 <body>
+<img class ="pic" src="https://1.bp.blogspot.com/-qCDMtNTRxSU/XZxKK65GTzI/AAAAAAABVb8/WowPaDU0C2QyhyoxZdlUYquaNQrHp9tGgCNcBGAsYHQ/s1600/bijutsu_gaban.png" alt="">
 <canvas id="draw" width="800" height="800"></canvas>
 <script>
+
+const canvas = document.querySelector('#draw');
+const ctx = canvas.getContext('2d'); // meaning
+// get window size canvas
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+// base setting for canvas (meaning)
+// ctx.strokeStyle = '#BADA55';
+
+ctx.lineJoin = "round";
+ctx.lineCap = "round";
+ctx.lineWidth = 50;
+
+let isDrawing = false;
+let lastX = 0;
+let lastY = 0;
+let hue = 0;
+
+function draw(e) {
+  if (!isDrawing) {
+    return;
+  }
+
+  // color change
+  ctx.strokeStyle = `hsl(${hue},100%, 50%)`; // meaning
+  console.log(e);
+  ctx.beginPath(); // meaning
+  // start from
+  ctx.moveTo(lastX, lastY);
+  // go to
+  ctx.lineTo(e.offsetX, e.offsetY);
+  ctx.stroke(); // meaning
+  // [lastX, lastY] = [e.offsetX, e.offsetY]; same as below; distructring array??
+  lastX = e.offsetX;
+  lastY = e.offsetY;
+
+  // color rainbow
+  hue++;
+}
+
+canvas.addEventListener('mousedown', (e) => {
+  isDrawing = true;
+  [lastX, lastY] = [e.offsetX, e.offsetY];
+  });
+
+canvas.addEventListener('mousemove', draw);
+canvas.addEventListener('mouseup', () => isDrawing = false);
+canvas.addEventListener('mouseout', () => isDrawing = false); 
+// when mouse is out of window
+
+
 </script>
 
 <style>
   html, body {
     margin: 0;
+  }
+
+  .pic {
+    position: absolute;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  #draw {
+    position: relative;
   }
 </style>
 
