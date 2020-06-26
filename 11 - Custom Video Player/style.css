@@ -10,21 +10,41 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
-  background: #7A419B;
+  /* background: #7A419B; */
   min-height: 100vh;
-  background: linear-gradient(135deg, #7c1599 0%,#921099 48%,#7e4ae8 100%);
-  background-size: cover;
+  /* background: linear-gradient(135deg, #7c1599 0%,#921099 48%,#7e4ae8 100%);
+  background-size: cover; */
   align-items: center;
   justify-content: center;
+
+  background-image: url(bg.jpg);
+  background-position: center center;
+  /* 画像をタイル状に繰り返し表示しない */
+  background-repeat: no-repeat;
+  /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
+  background-attachment: fixed;
+  /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
+  background-size: cover;
+  /* 背景画像が読み込まれる前に表示される背景のカラー */
+  background-color: #464646;
+}
+
+.bg {
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 
 .player {
-  max-width: 750px;
-  border: 5px solid rgba(0,0,0,0.2);
+  position: absolute;
+  max-width: 39%;
+  border: 15px solid black;
   box-shadow: 0 0 20px rgba(0,0,0,0.2);
-  position: relative;
   font-size: 0;
   overflow: hidden;
+  margin-left: -8.6%;
+  margin-top: 1%;
+  -webkit-transform: rotate(-0.6deg);
 }
 
 /* This css is only applied when fullscreen is active. */
