@@ -1,8 +1,8 @@
 html {
   box-sizing: border-box;
-  background: url('http://wes.io/hx9M/oh-la-la.jpg') center no-repeat;
-  background-size: cover;
+  background: url('bg02.jpg') center repeat;
   min-height: 100vh;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,9 +10,95 @@ html {
   font-family: Futura,"Trebuchet MS",Arial,sans-serif;
 }
 
+/* body {
+  width: 500px;
+  height: 400px;
+} */
+
 *, *:before, *:after {
   box-sizing: inherit; 
 }
+
+
+.bg {
+  position: absolute;
+  top: 40px;
+  left: 325px;
+  height: 650px;
+  width: 500px;
+}
+
+.wrapper {
+  font-family: 'Gochi Hand', cursive;
+  z-index: 4;
+  /* border: 1px solid black; */
+  padding: 30px;
+  max-width: 350px;
+  position: absolute;
+  top: 234px;
+  left: 418px;
+  /* background: rgba(255,255,255,0.95);
+  box-shadow: 0 0 0 10px rgba(0,0,0,0.1); */
+}
+
+h2 {
+  text-align: center;
+  margin: 0;
+  font-weight: 200;
+}
+
+.todos {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  list-style: none;
+}
+
+.todos li {
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  padding: 10px 0;
+  font-weight: 100;
+  display: flex;
+}
+
+.todos label {
+  flex: 1;
+  cursor: pointer;
+}
+
+.todos input {
+  display: none;
+}
+
+.todos input + label:before {
+  content: '⬜️';
+  margin-right: 10px;
+}
+
+.todos input:checked + label {
+  color: gray;
+}
+
+.todos input:checked + label:before {
+  content: '👍';
+}
+
+.add-items {
+  font-family: 'Gochi Hand', cursive;
+  margin-top: 20px;
+}
+
+.add-items input {
+  font-family: 'Gochi Hand', cursive;
+  padding: 10px;
+  outline: 0;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+
+
+
+/* ORG */
 
 svg {
   fill:white;
@@ -21,19 +107,6 @@ svg {
   border-radius: 50%;
   width: 200px;
   margin-bottom: 50px;
-}
-
-.wrapper {
-  padding: 20px;
-  max-width: 350px;
-  background: rgba(255,255,255,0.95);
-  box-shadow: 0 0 0 10px rgba(0,0,0,0.1);
-}
-
-h2 {
-  text-align: center;
-  margin: 0;
-  font-weight: 200;
 }
 
 .plates {
@@ -65,15 +138,15 @@ h2 {
 }
 
 .plates input:checked + label:before {
-  content: '🌮';
+  content: '👍';
 }
 
-.add-items {
-  margin-top: 20px;
-}
 
-.add-items input {
-  padding: 10px;
-  outline: 0;
-  border: 1px solid rgba(0,0,0,0.1);
-}
+/* BK
+
+.bg {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 188px;
+} */
